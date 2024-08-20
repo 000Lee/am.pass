@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>안다미로</title>
+    <link rel="icon" href="images/logo.png">
+    <style>
+        *{margin: 0; padding: 0; vertical-align: top; background-color: black;}
+        img{width: 100%;}
+        .cont1{max-width: 1920px; margin: 300px auto 0 auto; background-color: black; }
+        .cont1in{color: white; font-size: 200px; margin-left: 40px;}
+        .cont1-2{max-width: 1920px; margin: 0 auto;  background-color: black;}
+        .cont1-2in{color: white; font-size: 300px; font-weight: 600; text-align: center;
+            color: transparent;
+            background: url(images/배경.webp) no-repeat 100px 0 ; 
+            -webkit-background-clip: text;
+            background-clip: text; 
+            position: relative;
+        }
+        .video{width: 995px; height: auto; position: absolute; 
+            left: 50%; transform: translate(-50%,-117.5%); ;
+        }
+        .video video{width: 100%}
+        .video p{ position: absolute; bottom: 10%; left: 50%; transform: translate(-49%,0);
+        font-size: 60px; font-weight: 600; color: white;box-sizing: border-box;
+        
+
+        background-color: transparent;
+    }
+    .video p.one{ text-shadow: 5px 5px 10px orange ; opacity: 1;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="cont1"><div class="cont1in">Let's</div></div>
+        <div class="cont1-2"><div class="cont1-2in">PUMP IT UP</div></div>
+        <div class="cont2"><div class="cont2in"><img src="images/2.jpg"></div></div>
+        <div class="video">
+            <video controls loop autoplay muted>
+            <source src="images/kor_intro1.mp4" type="video/mp4">
+        </video><p class="one">ARCADE GAME</p><p class="two">ARCADE GAME</p></div>
+    </div>
+        <div class="cont3"><div class="cont3in"><img src="images/3.jpg"></div></div>
+        <div class="cont4"><div class="cont4in"><img src="images/4.jpg"></div></div>
+        <div class="cont5"><div class="cont5in"><img src="images/5.jpg"></div></div>
+        <div class="cont6"><div class="cont6in"><img src="images/6.png"></div></div>
+        <div class="cont7"><div class="cont7in"><img src="images/7.jpg"></div></div>
+    </div><!-- wrap -->
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(window).on('scroll',function(){
+            let scrolledY = $(window).scrollTop();
+            let horizontalPosition = 'calc(100% - 10px)';
+            $('.cont1-2in').css('background-position', horizontalPosition + (-scrolledY * 1.5) + 'px');
+            })
+
+            let flicker = true;
+            setInterval(function() {
+            if (flicker) {
+            $('.video p.one').css('opacity', '0'); 
+            } else {
+            $('.video p.one').css('opacity', '1'); 
+            }
+            flicker = !flicker;
+    }, 300); 
+
+
+
+
+    </script>
+</body>
+</html>
